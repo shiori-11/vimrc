@@ -154,6 +154,7 @@ Plugin 'Shougo/vimproc'
 Plugin 'thinca/vim-visualstar'
 Plugin 'tomtom/tcomment_vim'          " 一部まとめてコメントアウト
 Plugin 'itchyny/lightline.vim'        " ステータスバーを装飾
+Plugin 'bronson/vim-trailing-whitespace'      " 後ろのスペースを表示
 
 call vundle#end()            " required
 "" end Vundle
@@ -173,8 +174,8 @@ let g:quickrun_config['markdown'] = {
 
 "" end quickrun
 
-"" lightline.vim
-set laststatus=2
+"" def lightline.vim
+set laststatus=2    " 表示されない時の設定
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'component': {
@@ -183,3 +184,12 @@ let g:lightline = {
       \ 'separator': { 'left': ' ', 'right': ' ' },
       \ 'subseparator': { 'left': ' ', 'right': ' ' }
       \ }
+"" end lightline.vim
+
+"" def vim-indent-guides
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=110
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=140
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_guide_size=1
+"" end vim-indent-guides
