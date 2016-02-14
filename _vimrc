@@ -143,7 +143,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " github にあるプラグイン
-Plugin 'Shougo/neocomplete'       " 補完
 Plugin 'Shougo/unite.vim'             " ファイルオープンを便利に
 Plugin 'thinca/vim-ref'
 Plugin 'thinca/vim-quickrun'          " コード実行可能
@@ -155,6 +154,10 @@ Plugin 'thinca/vim-visualstar'
 Plugin 'tomtom/tcomment_vim'          " 一部まとめてコメントアウト
 Plugin 'itchyny/lightline.vim'        " ステータスバーを装飾
 Plugin 'bronson/vim-trailing-whitespace'      " 後ろのスペースを表示
+Plugin 'lambdalisue/vim-gita'         " gitのプラグイン　開発中
+Plugin 'Shougo/neocomplete'       " 補完
+Plugin 'Shougo/neosnippet'
+Plugin 'Shougo/neosnippet-snippets'   " 補完ここまで
 
 call vundle#end()            " required
 "" end Vundle
@@ -193,3 +196,27 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=140
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_guide_size=1
 "" end vim-indent-guides
+
+" ------------------------------------------------------------
+" NeoSnippetの設定
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+imap <expr><TAB>
+\ pumvisible() ? "\<C-n>" :
+\ neosnippet#expandable_or_jumpable() ?
+\    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
+
+let g:neocomplete#enable_at_startup = 1
+" End NeoSnippetの設定
+" ------------------------------------------------------------
