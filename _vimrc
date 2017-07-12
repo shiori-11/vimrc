@@ -135,7 +135,7 @@ inoremap <silent><ESC><ESC>:set iminsert=0<CR>
 "" def Vundle 
 set nocompatible              " be iMproved, required
 filetype off
-set rtp+=~/.vim/vimfiles/vundle
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " Vundleで管理するプラグインを書く
@@ -158,6 +158,7 @@ Plugin 'lambdalisue/vim-gita'         " gitのプラグイン　開発中
 Plugin 'Shougo/neocomplete'       " 補完
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'   " 補完ここまで
+Plugin 'scrooloose/nerdtree'          " プロジェクト表示
 
 call vundle#end()            " required
 "" end Vundle
